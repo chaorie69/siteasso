@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+
+<link rel="icon" href="favicon.ico">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Je veux m’engager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <!-- Logo à gauche = retour Accueil -->
+    <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+      <img src="asset/logo.png" alt="Logo de l'association">
+    </a>
+
+    <!-- Menu -->
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html">Nos actualités</a>
+      <a class="is-active" href="engagement.html">Je veux m’engager</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn--primary" href="don.html">Faire un don</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container narrow">
+    <h1>Je veux m’engager</h1>
+    <p>Remplis ce formulaire : on te recontacte rapidement.</p>
+
+    <form class="form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <label>
+        Nom / Prénom
+        <input name="nom" required />
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Téléphone
+        <input name="telephone" />
+      </label>
+
+      <label>
+        Disponibilités (ex: soirs, week-end, 2h/semaine)
+        <input name="disponibilites" />
+      </label>
+
+      <label>
+        Comment veux-tu aider ?
+        <select name="type_aide" required>
+          <option value="">Choisir…</option>
+          <option>Visites à domicile</option>
+          <option>Appels téléphoniques</option>
+          <option>Ateliers / activités</option>
+          <option>Aide administrative</option>
+          <option>Transport / accompagnement</option>
+          <option>Autre</option>
+        </select>
+      </label>
+
+      <label>
+        Message
+        <textarea name="message" rows="6"></textarea>
+      </label>
+
+      <button class="btn btn--primary" type="submit">Envoyer</button>
+      <p class="hint">En envoyant, tu acceptes d’être recontacté par l’association.</p>
+    </form>
+  </div>
+</main>
+
+</body>
+</html>

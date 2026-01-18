@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nos actualités – Association</title>
+  <meta name="description" content="Actualités de l'association : actions, événements, bénévolat, témoignages." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Styles uniquement pour la page actualités (ne casse pas ton styles.css) -->
+  <style>
+    .page-head{ padding: 18px 0 8px; }
+    .page-head h1{ margin:0 0 6px; color: var(--ink); }
+    .page-head p{ margin:0; color: var(--muted); }
+
+    .toolbar{
+      display:flex; gap: 12px; align-items:center; justify-content:space-between;
+      flex-wrap: wrap; margin: 16px 0 8px;
+    }
+    .search{
+      display:flex; gap: 10px; align-items:center; flex: 1 1 320px;
+      background:#fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 10px 12px; box-shadow: var(--shadow);
+    }
+    .search input{ border:0; padding:0; outline:none; width:100%; background:transparent; }
+
+    .pillbar{ display:flex; gap: 8px; flex-wrap: wrap; justify-content:flex-end; }
+    .pill{
+      border: 1px solid var(--border); background:#fff; color: var(--ink);
+      padding: 8px 10px; border-radius: 999px; cursor: pointer; font: inherit;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .pill:hover{ box-shadow: var(--shadow); transform: translateY(-1px); }
+    .pill.is-active{ border:none; background: var(--grad); color:#fff; }
+
+    .featured{
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
+      display:grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+    .featured img{
+      width:100%; height:100%; min-height: 260px;
+      object-fit: cover; display:block;
+    }
+    .featured__content{
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .meta{
+      display:flex; gap: 10px; align-items:center; flex-wrap: wrap;
+      color: var(--muted); font-size: 13px;
+    }
+    .tag{
+      display:inline-flex; align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background:#fff;
+      color: var(--ink);
+      font-size: 13px;
+    }
+    .featured__content h2{ margin: 0; color: var(--ink); line-height: 1.2; }
+    .featured__content p{ margin:0; color: var(--muted); line-height: 1.5; }
+    .featured__actions{ margin-top: 6px; display:flex; gap: 10px; flex-wrap: wrap; }
+
+    .news-grid{
+      margin-top: 16px;
+      display:grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .news-card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .news-card__media img{
+      width:100%;
+      height: 170px;
+      object-fit: cover;
+      display:block;
+    }
+    .news-card__body{
+      padding: 12px 12px 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+      flex:1;
+    }
+    .news-card__body h3{
+      margin:0;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    .news-card__body p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+    .news-card__footer{
+      margin-top:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding-top: 6px;
+    }
+    .readmore{ text-decoration:none; font-weight: 600; color: var(--pink); }
+
+    .empty{
+      display:none;
+      margin: 16px 0 0;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      color: var(--muted);
+      background:#fff;
+    }
+
+    .pager{
+      margin: 16px 0 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pager-info{ color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 900px){
+      .featured{ grid-template-columns: 1fr; }
+      .news-grid{ grid-template-columns: 1fr; }
+      .featured img{ min-height: 220px; }
+    }
+  </style>
+</head>
+
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <!-- Logo = bouton Accueil -->
+    <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+      <img src="asset/logo.png" alt="Logo de l'association">
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a class="is-active" href="actualites.html">Nos actualités</a>
+      <a href="engagement.html">Je veux m’engager</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn--primary" href="don.html">Faire un don</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="page-head">
+      <h1>Nos actualités</h1>
+      <p>Actions terrain, événements, bénévolat, témoignages. Tout ce qu’on fait, concrètement.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="search" role="search" aria-label="Rechercher une actualité">
+        <span aria-hidden="true">🔎</span>
+        <input id="search" type="search" placeholder="Rechercher : atelier, visite, événement…" />
+      </div>
+
+      <div class="pillbar" aria-label="Filtres">
+        <button class="pill is-active" data-filter="all" type="button">Tout</button>
+        <button class="pill" data-filter="terrain" type="button">Actions terrain</button>
+        <button class="pill" data-filter="evenement" type="button">Événements</button>
+        <button class="pill" data-filter="benevolat" type="button">Bénévolat</button>
+        <button class="pill" data-filter="temoignage" type="button">Témoignages</button>
+      </div>
+    </div>
+
+    <!-- À la une (injecté par JS) -->
+    <section class="featured" id="featured" aria-label="Actualité à la une"></section>
+
+    <!-- Grille (injectée par JS) -->
+    <section id="liste" class="news-grid" aria-label="Liste des actualités"></section>
+
+    <div class="empty" id="empty"></div>
+
+    <div class="pager" aria-label="Pagination">
+      <button class="btn" id="prev" type="button">← Précédent</button>
+      <div class="pager-info" id="pagerInfo">Page 1</div>
+      <button class="btn" id="next" type="button">Suivant →</button>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year"></span> Association – Tous droits réservés.</p>
+    <div class="footer__links">
+      <a href="contact.html">Contact</a>
+      <a href="don.html">Don</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const featuredEl = document.getElementById("featured");
+  const gridEl = document.getElementById("liste");
+  const emptyEl = document.getElementById("empty");
+
+  const pills = Array.from(document.querySelectorAll(".pill"));
+  const searchEl = document.getElementById("search");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  const pagerInfo = document.getElementById("pagerInfo");
+
+  let data = null;
+  let activeFilter = "all";
+  let query = "";
+  let page = 1;
+  const pageSize = 6;
+  const CATEGORY_LABELS = {
+  terrain: "Actions terrain",
+  evenement: "Événements",
+  benevolat: "Bénévolat",
+  temoignage: "Témoignages"
+};
+
+
+  function fmtDate(iso){
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString("fr-FR", { year:"numeric", month:"long", day:"numeric" });
+  }
+
+  function safe(s){ return (s ?? "").toString(); }
+
+  function renderFeatured(post){
+    if(!post){
+      featuredEl.style.display = "none";
+      return;
+    }
+    featuredEl.style.display = "grid";
+    featuredEl.innerHTML = `
+      <img src="${safe(post.image)}" alt="">
+      <div class="featured__content">
+        <div class="meta">
+          <span class="tag">${CATEGORY_LABELS[post.category] || post.category}</span>
+          <span>•</span>
+          <time datetime="${safe(post.date)}">${fmtDate(safe(post.date))}</time>
+          ${post.location && post.location !== "—" ? `<span>•</span><span>${safe(post.location)}</span>` : ``}
+        </div>
+        <h2>${safe(post.title)}</h2>
+        <p>${safe(post.excerpt)}</p>
+        <div class="featured__actions">
+          <a class="btn btn--primary" href="#liste">Voir les autres actualités</a>
+          <a class="btn" href="engagement.html">Devenir bénévole</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function cardHtml(post){
+    return `
+      <article class="news-card" data-category="${safe(post.category)}">
+        <div class="news-card__media">
+          <img src="${safe(post.image)}" alt="">
+        </div>
+        <div class="news-card__body">
+          <div class="meta">
+            <span class="tag">${CATEGORY_LABELS[post.category] || post.category}</span>
+            <time datetime="${safe(post.date)}">${fmtDate(safe(post.date))}</time>
+          </div>
+          <h3>${safe(post.title)}</h3>
+          <p>${safe(post.excerpt)}</p>
+          <div class="news-card__footer">
+            <a class="readmore" href="#">Lire</a>
+            <span class="pager-info">${safe(post.readTime || "")}</span>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function matches(post){
+    const cat = safe(post.category);
+    const q = query.trim().toLowerCase();
+    const hay = (safe(post.title) + " " + safe(post.excerpt) + " " + safe(post.content)).toLowerCase();
+
+    const okFilter = (activeFilter === "all") || (cat === activeFilter);
+    const okQuery = !q || hay.includes(q);
+    return okFilter && okQuery;
+  }
+
+  function renderList(){
+    const posts = (data?.posts || []).slice().sort((a,b) => safe(b.date).localeCompare(safe(a.date)));
+    const filtered = posts.filter(matches);
+
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    page = Math.min(page, totalPages);
+
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize;
+
+    gridEl.innerHTML = filtered.slice(start, end).map(cardHtml).join("");
+
+    emptyEl.style.display = filtered.length ? "none" : "block";
+    emptyEl.textContent = filtered.length ? "" : "Aucun résultat. Essaie un autre mot-clé ou remets le filtre sur “Tout”.";
+
+    pagerInfo.textContent = `Page ${page} / ${totalPages}`;
+    prevBtn.disabled = page <= 1;
+    nextBtn.disabled = page >= totalPages;
+  }
+
+  async function init(){
+    try{
+      const res = await fetch("./data/actualites.json", { cache: "no-store" });
+      if(!res.ok) throw new Error("JSON introuvable (HTTP " + res.status + ")");
+      data = await res.json();
+
+      const posts = data.posts || [];
+      const featured = posts.find(p => p.id === data.featuredId) || posts[0];
+      renderFeatured(featured);
+
+      renderList();
+    }catch(err){
+      featuredEl.style.display = "none";
+      gridEl.innerHTML = "";
+      emptyEl.style.display = "block";
+      emptyEl.textContent = "Erreur: impossible de charger les actualités. Vérifie Live Server + le chemin ./data/actualites.json.";
+      console.error(err);
+    }
+  }
+
+  pills.forEach(p => {
+    p.addEventListener("click", () => {
+      pills.forEach(x => x.classList.remove("is-active"));
+      p.classList.add("is-active");
+      activeFilter = p.dataset.filter;
+      page = 1;
+      renderList();
+    });
+  });
+
+  searchEl.addEventListener("input", (e) => {
+    query = e.target.value;
+    page = 1;
+    renderList();
+  });
+
+  prevBtn.addEventListener("click", () => { page = Math.max(1, page - 1); renderList(); });
+  nextBtn.addEventListener("click", () => { page = page + 1; renderList(); });
+
+  init();
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <link rel="icon" href="favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Association – Aide aux personnes âgées</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html">
+      <img src="asset/logo.png" alt="Logo de l'association">
+    </a>
+    <nav class="nav">
+      <a href="actualites.html">Nos actualités</a>
+      <a href="engagement.html">Je veux m’engager</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn--primary" href="don.html">Faire un don</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <h1>Rompre l’isolement, soutenir au quotidien, agir localement.</h1>
+        <p>
+          Notre association accompagne les personnes âgées : visites, aide administrative,
+          ateliers, sorties, appels réguliers et soutien aux aidants.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="engagement.html">Je veux m’engager</a>
+          <a class="btn" href="actualites.html">Voir les actualités</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>+120</strong><span>Bénévoles</span></div>
+          <div class="stat"><strong>+500</strong><span>Adhérents</span></div>
+          <div class="stat"><strong>12</strong><span>Employés</span></div>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <img src="asset/home.png" alt="Bénévole avec une personne âgée" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Nos actions</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="asset/illustration1.png" alt="Visites à domicile" />
+          <h3>Visites à domicile</h3>
+          <p>Présence, écoute, lien social, accompagnement aux rendez-vous si besoin.</p>
+        </article>
+        <article class="card">
+          <img src="asset/illustration2.png" alt="Ateliers" />
+          <h3>Ateliers & activités</h3>
+          <p>Ateliers mémoire, informatique, jeux, moments intergénérationnels.</p>
+        </article>
+        <article class="card">
+          <img src="asset/illustration3.png" alt="Soutien aux aidants" />
+          <h3>Soutien aux aidants</h3>
+          <p>Informations, orientation, temps d’échange et relais de terrain.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container video">
+      <div>
+        <h2>Découvrir l’association</h2>
+        <p>Une courte vidéo pour comprendre notre mission et nos actions sur le terrain.</p>
+        <a class="btn btn--primary" href="don.html">Soutenir nos actions</a>
+      </div>
+      <div class="video__frame">
+        <!-- Remplace l’URL par ta vidéo YouTube/Vimeo -->
+        <iframe
+          src="asset/20260118_1727_New Video_simple_compose_01kf8yy1ngf16bvqwspantk5mj.mp4"
+          title="Présentation de l'association"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year"></span> Association VIVRE LA VIE – Tous droits réservés.</p>
+    <div class="footer__links">
+      <a href="contact.html">Contact</a>
+      <a href="don.html">Don</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
