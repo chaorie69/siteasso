@@ -1,0 +1,54 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "asset"
+public_folder: "/asset"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "actualites_data"
+    label: "Actualités"
+    files:
+      - file: "data/actualites.json"
+        label: "Gestion des actualités"
+        name: "actualites"
+        fields:
+          - label: "ID à la une (featuredId)"
+            name: "featuredId"
+            widget: "string"
+
+          - label: "Actualités"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - label: "ID (unique)"
+                name: "id"
+                widget: "string"
+                hint: "Ex: news-2026-01-18-atelier"
+
+              - label: "Titre"
+                name: "title"
+                widget: "string"
+
+              - label: "Extrait (court)"
+                name: "excerpt"
+                widget: "text"
+
+              - label: "Contenu (optionnel)"
+                name: "content"
+                widget: "text"
+                required: false
+
+              - label: "Catégorie"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Actions terrain", value: "terrain" }
+                  - { label: "Événements", value: "evenement" }
+                  - { label: "Bénévolat", value: "benevolat" }
+                  - { label: "Témoignages", value: "temoignage" }
+
+              - label: "Date"
