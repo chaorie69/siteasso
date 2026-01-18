@@ -1,0 +1,37 @@
+{
+    "featuredId": "a-la-une-1",
+    "posts": [
+      {
+        "id": "a-la-une-1",
+        "title": "Galette solidaire : un moment intergénérationnel réussi",
+        "excerpt": "Une après-midi de partage avec nos bénéficiaires, des familles et des bénévoles.",
+        "content": "Texte complet (optionnel) si tu veux l'afficher sur une page article plus tard.",
+        "category": "evenement",
+        "date": "2026-01-10",
+        "location": "Saint-Etienne",
+        "readTime": "3 min",
+        "image": "asset/actu1.png"
+      },
+      {
+        "id": "news-1",
+        "title": "Tournée de visites à domicile : 30 foyers accompagnés",
+        "excerpt": "Présence, écoute, et orientation vers les bons services. Objectif : rompre l’isolement.",
+        "category": "terrain",
+        "date": "2026-01-06",
+        "location": "—",
+        "readTime": "3 min",
+        "image": "asset/news-1.jpg"
+      },
+      {
+        "id": "news-2",
+        "title": "Formation : mieux écouter, mieux accompagner",
+        "excerpt": "Un module concret sur l’écoute active, les limites, et la posture auprès des aînés.",
+        "category": "benevolat",
+        "date": "2025-12-18",
+        "location": "—",
+        "readTime": "4 min",
+        "image": "asset/news-2.jpg"
+      }
+    ]
+  }
+  
